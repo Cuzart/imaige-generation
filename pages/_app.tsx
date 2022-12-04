@@ -10,12 +10,15 @@ import {
   Navbar,
   Header,
   ColorScheme,
+  Flex,
 } from '@mantine/core';
-import { IconSun, IconMoonStars } from '@tabler/icons';
 import styles from '../styles/Home.module.css';
 import { useState } from 'react';
 import ColorSwitchIcon from '../components/ColorSwitchIcon';
 import { NavigationProgress } from '@mantine/nprogress';
+import { Logo } from '../components/Logo';
+
+import Image from 'next/image';
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -39,6 +42,7 @@ export default function App(props: AppProps) {
           withNormalizeCSS
           theme={{
             colorScheme,
+            loader: 'dots',
           }}
         >
           <main>
@@ -47,11 +51,21 @@ export default function App(props: AppProps) {
               navbarOffsetBreakpoint='sm'
               asideOffsetBreakpoint='sm'
               header={
-                <Header height={{ base: 50, md: 70 }} p='md'>
-                  <Group sx={{ height: '100%' }} px={20} position='apart'>
-                    <div>LOGO</div>
+                <Header
+                  height={{ base: 50, md: 70 }}
+                  p='md'
+                  sx={{ border: 'none', boxShadow: '1px 1px 10px #00000020' }}
+                >
+                  <Flex
+                    sx={{ height: '100%' }}
+                    align='center'
+                    px={20}
+                    justify={'space-between'}
+                    style={{ color: theme.colorScheme === 'dark' ? 'white' : 'black' }}
+                  >
+                    <Logo />
                     <ColorSwitchIcon />
-                  </Group>
+                  </Flex>
                 </Header>
               }
             >
@@ -60,7 +74,7 @@ export default function App(props: AppProps) {
           </main>
 
           <footer className={styles.footer}>
-            <div>Made with 🧡 in Schwäbisch Hall</div>
+            <div>Made with {colorScheme === 'dark' ? '🧡' : '💙'} in Schwäbisch Hall</div>
           </footer>
         </MantineProvider>
       </ColorSchemeProvider>
