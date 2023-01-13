@@ -9,6 +9,7 @@ import {
   ColorScheme,
   Flex,
   Box,
+  Alert,
 } from '@mantine/core';
 import styles from '../styles/Home.module.css';
 import { useState } from 'react';
@@ -17,6 +18,7 @@ import { NavigationProgress } from '@mantine/nprogress';
 import { Logo } from '../components/Logo';
 import contours from '../public/contours.svg';
 import { Karla } from '@next/font/google';
+import { IconAlertCircle } from '@tabler/icons';
 
 const karla = Karla({ subsets: ['latin'] });
 
@@ -61,7 +63,12 @@ export default function App(props: AppProps) {
                   p='md'
                   sx={{ border: 'none', boxShadow: '1px 1px 10px #00000020' }}
                 >
-                  <Flex sx={{ height: '100%' }} align='center' px={20} justify={'space-between'}>
+                  <Flex
+                    sx={{ height: '100%', maxWidth: 1200, margin: '0 auto' }}
+                    align='center'
+                    px={20}
+                    justify={'space-between'}
+                  >
                     <Logo />
                     <ColorSwitchIcon />
                   </Flex>
@@ -71,6 +78,16 @@ export default function App(props: AppProps) {
               <Component {...pageProps} />
             </AppShell>
           </main>
+          <Alert
+            icon={<IconAlertCircle size={16} />}
+            title='Disclaimer'
+            color='orange'
+            radius={0}
+            style={{ margin: '120px auto 0' }}
+          >
+            This page was intentionally designed to use the OpenAI API to generate an image out of a
+            prompt. For now the form returns an image from the unsplash API based on the prompt.
+          </Alert>
           <footer className={styles.footer}>
             <div>Made with {colorScheme === 'dark' ? '🧡' : '💙'} in Schwäbisch Hall</div>
           </footer>

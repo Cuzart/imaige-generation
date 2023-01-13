@@ -1,4 +1,5 @@
 import {
+  Alert,
   Anchor,
   Blockquote,
   Box,
@@ -11,7 +12,7 @@ import {
   useMantineTheme,
 } from '@mantine/core';
 import { completeNavigationProgress } from '@mantine/nprogress';
-import { IconRepeat } from '@tabler/icons';
+import { IconAlertCircle, IconRepeat } from '@tabler/icons';
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import { createImage } from '../helpers/createImage';
@@ -104,6 +105,8 @@ const Home: NextPage = () => {
           <>
             <Title
               order={1}
+              fz={48}
+              mt={60}
               weight={900}
               variant='gradient'
               align='center'
@@ -153,7 +156,7 @@ const Home: NextPage = () => {
               onClick={() => setImageUrl('')}
               color={theme.colorScheme === 'dark' ? 'yellow' : 'cyan'}
               variant='subtle'
-              sx={{ display: 'block', margin: '1rem auto 0' }}
+              sx={{ display: 'block', margin: '1rem auto 5rem' }}
               leftIcon={<IconRepeat size={16} />}
             >
               Try again
