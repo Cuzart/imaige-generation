@@ -12,7 +12,7 @@ import {
   useMantineTheme,
 } from '@mantine/core';
 import { completeNavigationProgress } from '@mantine/nprogress';
-import { IconAlertCircle, IconRepeat } from '@tabler/icons';
+import { IconRepeat } from '@tabler/icons';
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import { createImage } from '../helpers/createImage';

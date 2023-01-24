@@ -17,10 +17,10 @@ import ColorSwitchIcon from '../components/ColorSwitchIcon';
 import { NavigationProgress } from '@mantine/nprogress';
 import { Logo } from '../components/Logo';
 import contours from '../public/contours.svg';
-import { Karla } from '@next/font/google';
+import { IBM_Plex_Sans } from '@next/font/google';
 import { IconAlertCircle } from '@tabler/icons';
 
-const karla = Karla({ subsets: ['latin'] });
+const font = IBM_Plex_Sans({ weight: '700' });
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -30,7 +30,7 @@ export default function App(props: AppProps) {
 
   return (
     <Box
-      className={karla.className + ' app'}
+      className={font.className + ' app'}
       sx={{ '&::after': { backgroundImage: `url(${contours.src})` } }}
     >
       <Head>
@@ -45,10 +45,10 @@ export default function App(props: AppProps) {
           withGlobalStyles
           withNormalizeCSS
           theme={{
-            fontFamily: 'Karla',
+            fontFamily: 'IBM Plex Sans',
             colorScheme,
             loader: 'dots',
-            headings: { fontFamily: 'Karla' },
+            headings: { fontFamily: 'IBM Plex Sans' },
           }}
         >
           <main>
