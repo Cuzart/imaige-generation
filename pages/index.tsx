@@ -52,6 +52,7 @@ const Home: NextPage = () => {
                 src={theme.colorScheme === 'dark' ? RockIllustrationDark : RockIllustration}
                 alt='rocking hand'
                 width={200}
+                style={{ maxWidth: '100vw' }}
               ></Image>
             </Box>
             <Title

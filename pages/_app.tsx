@@ -17,20 +17,22 @@ import ColorSwitchIcon from '../components/ColorSwitchIcon';
 import { NavigationProgress } from '@mantine/nprogress';
 import { Logo } from '../components/Logo';
 import contours from '../public/contours.svg';
-import { IBM_Plex_Sans } from '@next/font/google';
+import { Montserrat } from '@next/font/google';
 import { IconAlertCircle } from '@tabler/icons';
 
-const font = IBM_Plex_Sans({ weight: '700' });
+const fontBold = Montserrat({ weight: '900' });
+const font = Montserrat({ weight: '400' });
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
   const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
+  console.log(font.style.fontFamily);
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
   return (
     <Box
-      className={font.className + ' app'}
+      className={font.className + ' ' + fontBold.className + ' app'}
       sx={{ '&::after': { backgroundImage: `url(${contours.src})` } }}
     >
       <Head>
@@ -45,10 +47,10 @@ export default function App(props: AppProps) {
           withGlobalStyles
           withNormalizeCSS
           theme={{
-            fontFamily: 'IBM Plex Sans',
+            fontFamily: font.style.fontFamily,
             colorScheme,
             loader: 'dots',
-            headings: { fontFamily: 'IBM Plex Sans' },
+            headings: { fontFamily: fontBold.style.fontFamily },
           }}
         >
           <main>
